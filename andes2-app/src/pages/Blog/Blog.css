@@ -1,0 +1,30 @@
+/* Estilos para la sección de publicaciones */
+.blog-post-section {
+    display: flex;
+    
+    gap: 20px; /* Espaciado entre publicaciones */
+  }
+  
+  .fb-post {
+    padding: 15px;
+    background-color: #f9f9f9; /* Fondo claro */
+    border: 1px solid #e0e0e0; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 500px;
+    margin: auto; /* Centrar las publicaciones */
+  }
+  
+  .fb-post:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de levantado */
+    transition: all 0.3s ease; /* Suaviza la transición */
+  }
+  
+  /* Ajuste en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .fb-post {
+      max-width: 100%;
+    }
+  }
+  
