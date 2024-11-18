@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import { Container, Row, Col, Offcanvas, Accordion } from "react-bootstrap";
 import PopularCard from "../../components/Cards/PopularCard";
-import { popularsDataBolivia, destinationsData } from "../../utils/data";
+import { popularsDataBolivia, destinationsData } from "../../utils/data.js";
 import Filters from "./Filters";
 import "../Tours/tour.css";
-import { Link } from 'react-router-dom';
+
 
 const Tours = () => {
   const [show, setShow] = useState(false);
@@ -16,24 +16,21 @@ const Tours = () => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    document.title = "Tours" ;
-    window.scroll(0, 0);
-  }, []);
-
-  useEffect(() => {
-    // Filtramos los tours en función de los filtros seleccionados
+    
     const filtered = popularsDataBolivia.filter((tour) => {
-      return (
-        (!filters.location || filters.location.includes(tour.location)) &&
-        (!filters.category || filters.category.includes(tour.category)) &&
-        (!filters.duration || filters.duration.includes(tour.duration)) &&
-        (!filters.price || filters.price.includes(tour.priceRange)) &&
-        (!filters.rating || filters.rating.includes(tour.rating))
-      );
+      // Validar categorías (al menos una coincidencia)
+      const matchesCategory =
+        !filters.category?.length || filters.category.some((cat) => tour.category.includes(cat));
+  
+      // Validar duración (coincidencia exacta)
+      const matchesDuration =
+        !filters.duration?.length || filters.duration.includes(tour.days);
+  
+      return matchesCategory && matchesDuration ;
     });
+  
     setFilteredTours(filtered);
   }, [filters]);
-
   return (
     <>
       <Breadcrumbs title="Tours" pagename="Tours" />
@@ -75,7 +72,7 @@ const Tours = () => {
 
       <section id="faqs" className="faq-section py-5">
         <Container>
-          <h2 className="font-bold mb-4 h4">Preguntas Frecuentes from {destinationsData[0].name} </h2>
+          <h2 className="font-bold mb-4 h4">Frequently Asked Questions from {destinationsData[0].name} </h2>
           <Accordion defaultActiveKey="0">
             {/* Accede a las FAQs de tour con destinationsData[0].faqs */}
             {destinationsData[0].faqs && destinationsData[0].faqs.map((faq, index) => (

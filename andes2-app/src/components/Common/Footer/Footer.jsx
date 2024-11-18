@@ -50,7 +50,7 @@ const Footer = () => {
                   <a href="https://www.facebook.com/Andes2Amazon/" target="_blank" rel="noopener noreferrer" className="me-3">
                     <i className="bi bi-facebook"></i>
                   </a>
-                  <a href="https://www.instagram.com/Andes2Amazon/" target="_blank" rel="noopener noreferrer" className="me-3">
+                  <a href="https://www.instagram.com/andes_2_amazon/" target="_blank" rel="noopener noreferrer" className="me-3">
                     <i className="bi bi-instagram"></i>
                   </a>
                   <a href="https://www.youtube.com/channel/UCIIeRPczn1QVsA5ByspArbQ" target="_blank" rel="noopener noreferrer" className="me-3">
@@ -100,11 +100,11 @@ const Footer = () => {
 
               <div className="d-flex align-items-top my-2">
                 <i className="bi bi-envelope me-3"></i>
-                <a target="_blank" href="mailto:go@a2a.bo" className="d-block" >go@a2a.bo</a>
+                <a target="_blank" href="mailto:go@a2a.bo" className="d-block" rel="noopener noreferrer">go@a2a.bo</a>
               </div>
               <div className="d-flex align-items-top ">
                 <i className="bi bi-whatsapp me-3"></i>
-                <a target="_blank" href="https://api.whatsapp.com/send/?phone=59171969465&text&type=phone_number&app_absent=0" className="d-block" >+591 719-69465</a>
+                <a target="_blank" href="https://api.whatsapp.com/send/?phone=59171969465&text&type=phone_number&app_absent=0" className="d-block" rel="noopener noreferrer">+591 719-69465</a>
               </div>
 
             </Col>

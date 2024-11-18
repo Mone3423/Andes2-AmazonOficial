@@ -33,7 +33,7 @@ const Destinations = () => {
         </section>
         <section className="faq-section py-5">
         <Container>
-          <h2 className="font-bold mb-4 h4">Preguntas Frecuentes</h2>
+          <h2 className="font-bold mb-4 h4">FAQs</h2>
           <Accordion defaultActiveKey="0">
             {/* Accede a las FAQs de tour con tour.faqs */}
             {destinationsData.faqs && destinationsData.faqs.map((faq, index) => (

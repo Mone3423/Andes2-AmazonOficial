@@ -71,7 +71,7 @@ const Contact = () => {
                     Send Email whit your questions
                   </p>
                   <div className="d-block justify-content-between">
-                    <a type="button" className="btn btn-light me-2 btn-sm">
+                    <a type="button" href="mailto:go@a2a.bo" className="btn btn-light me-2 btn-sm">
                       <i className="bi bi-envelope me-2"></i>
                       go@a2a.bo
                     </a>
@@ -100,7 +100,7 @@ const Contact = () => {
                         </a>
                       </ListGroup.Item>
                       <ListGroup.Item className="border-0">
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/andes_2_amazon/" target="_blank" rel="noopener noreferrer">
                           <i className="bi bi-instagram"></i>
                         </a>
                       </ListGroup.Item>

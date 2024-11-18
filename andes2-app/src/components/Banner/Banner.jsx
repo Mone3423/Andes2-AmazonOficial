@@ -17,13 +17,14 @@ const Banner = () => {
       <section className="slider">
 
         {/* Texto Fijo */}
-        <div className="fixed-text">
-          <h5 className=" text-white text-uppercase font-bold">BOOK YOUR NEXT AVENTURE <span > WHIT US</span></h5>
-          <p className="sub_text">
-          Experience the beauty of Bolivia with our tours.
-          </p>
-        </div>
-
+        <div className="fixed-text  text-md-start p-3">
+        <h5 className="text-white text-uppercase font-bold fs-4 fs-5 fs-md-4">
+    Book Your Next Adventure <span>With Us</span>
+  </h5>
+  <p className="sub_text text-white fs-6 fs-md-5">
+    Experience the beauty of Bolivia with our tours.
+  </p>
+</div>
         {/* Carrusel de Imágenes */}
         <Carousel variant="dark">
           <Carousel.Item>

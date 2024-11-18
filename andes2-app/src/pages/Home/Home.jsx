@@ -72,25 +72,36 @@ const Home = () => {
     <>
 
       <Banner />
-      
-      <AdvanceSearch />
-      
-      <Features />
-      
-      <div
-        className="whatsapp-widget"
-        onClick={() => window.open('https://api.whatsapp.com/send/?phone=59171969465&text&type=phone_number&app_absent=0', '_blank')}
-      >
-        <img src={whatsappIcon} alt="WhatsApp Icon" />
-      </div>
-      <div
-        className="messenger-widget"
-        onClick={() => window.open('https://api.whatsapp.com/send/?phone=59171969465&text&type=phone_number&app_absent=0', '_blank')}
-      >
-        <img src={messengerIcon} alt="Mesenger Icon" />
-      </div>
 
-      {/* tour seciton start */}
+      <AdvanceSearch />
+
+      <Features />
+
+      <div className="contact-widgets">
+        <div
+          className="whatsapp-widget"
+          onClick={() =>
+            window.open(
+              'https://api.whatsapp.com/send/?phone=59171969465&text&type=phone_number&app_absent=0',
+              '_blank'
+            )
+          }
+        >
+          <img src={whatsappIcon} alt="WhatsApp Icon" />
+        </div>
+        <div
+          className="messenger-widget"
+          onClick={() =>
+            window.open(
+              'https://api.whatsapp.com/send/?phone=59171969465&text&type=phone_number&app_absent=0',
+              '_blank'
+            )
+          }
+        >
+          <img src={messengerIcon} alt="Messenger Icon" />
+        </div>
+      </div>
+      { }
 
       <section className="tours_section slick_slider">
         <Container>
@@ -160,18 +171,20 @@ const Home = () => {
           Contact Us !
         </a>
 
-        {/* Contenedor para los íconos, debajo del botón */}
-        <div className="mt-3"> 
-          <a href="https://api.whatsapp.com/send/?phone=59171969465&text&type=phone_number&app_absent=0"
-            className="bi bi-instagram me-4 fs-3 text-white"
-            rel="no"
-          ></a>
-          <a
-            href="https://www.facebook.com/Andes2Amazon"
-            className="bi bi-facebook fs-3 text-white"
-            rel="no"
-          ></a>
-        </div>
+              {/* Contenedor para los íconos, debajo del botón */}
+              <div className="mt-3">
+                <a href="https://www.instagram.com/andes_2_amazon/"
+                  className="bi bi-instagram me-4 fs-3 text-white"
+                  rel="noopener noreferrer"
+                  aria-label="Visit our Instagram profile"
+                ></a>
+                <a
+                  href="https://www.facebook.com/Andes2Amazon"
+                  className="bi bi-facebook fs-3 text-white"
+                  rel="noopener noreferrer"
+                  aria-label="Visit our Facebook page"
+                ></a>
+              </div>
       </Col>
     </Row>
   </Container>

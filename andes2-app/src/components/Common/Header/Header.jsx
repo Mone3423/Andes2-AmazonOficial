@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Logo from '../../../assets/images/Logo.png';
-import Usuario from '../../../assets/images/imagenUsuario.png';
 import {
   Container,
   Navbar,
   Offcanvas,
   Nav,
   NavDropdown,
-  Button,
   Dropdown,
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -50,7 +48,6 @@ const Header = () => {
         <Navbar expand="lg" className="p-0">
           {/* Logo  */}
           <Navbar.Brand>
-
             <NavLink to="/"><img src={Logo} alt="Andes2 Amazon Logo" className="logo-image" /> </NavLink>
           </Navbar.Brand>
           {/* Final Logo   */}
@@ -99,7 +96,7 @@ const Header = () => {
                   <NavLink className="nav-link text-dark" to="/destinations" onClick={closeMenu}>
                     Argentina Tours
                   </NavLink>
-                  <NavLink className="nav-link text-dark" to="/Peru" onClick={closeMenu}>
+                  <NavLink className="nav-link text-dark" to="/destinations" onClick={closeMenu}>
                     Peru Tours
                   </NavLink>
 
@@ -115,22 +112,27 @@ const Header = () => {
             </Offcanvas.Body>
           </Navbar.Offcanvas>
           <div className="ms-md-4 ms-2">
-                <Dropdown>
-                  <Dropdown.Toggle variant="primary" className="primaryBtn d-none d-sm-inline-block">
-                    Language
-                  </Dropdown.Toggle>
+            <Dropdown>
+              <Dropdown.Toggle
+                variant="primary"
+                className="primaryBtn d-none d-sm-inline-block responsive-language-btn"
+              >
+                Language
+              </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item>English</Dropdown.Item>
-                    <Dropdown.Item>Español</Dropdown.Item>
-                    
-                  </Dropdown.Menu>
-                </Dropdown>
+              <Dropdown.Menu>
+                <Dropdown.Item>English</Dropdown.Item>
+                <Dropdown.Item>Español</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
 
-                <li className="d-inline-block d-lg-none ms-3 toggle_btn">
-                  <i className={open ? "bi bi-x-lg" : "bi bi-list"} onClick={toggleMenu}></i>
-                </li>
-              </div>
+            <li className="d-inline-block d-lg-none ms-3 toggle_btn">
+              <i
+                className={open ? "bi bi-x-lg" : "bi bi-list"}
+                onClick={toggleMenu}
+              ></i>
+            </li>
+          </div>
         </Navbar>
 
 

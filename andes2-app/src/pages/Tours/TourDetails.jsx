@@ -3,7 +3,7 @@ import { useParams, NavLink } from "react-router-dom";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import ImageGallery from "react-image-gallery";
 import "../Tours/tour.css";
-import { tourDetailsDataBolivia, popularsDataBolivia } from "../../utils/data"; // Asegúrate de exportar los datos como 'tourDetailsData'
+import { tourDetailsDataBolivia } from "../../utils/data"; // Asegúrate de exportar los datos como 'tourDetailsDataBolivia'
 
 import {
   Container,
@@ -15,28 +15,30 @@ import {
   Accordion,
   Card,
   Stack,
-  Form,
 } from "react-bootstrap";
 
 const TourDetails = () => {
   const { id } = useParams(); // Obtiene el id del tour de la URL
   const tour = tourDetailsDataBolivia.find((tour) => tour.id === parseInt(id)); // Busca el tour correspondiente en los datos
 
-  const [numPeople, setNumPeople] = useState(1);
-  const totalPrice = tour ? tour.price * numPeople : 0;
+  // Hooks deben estar siempre al inicio del componente
+  const [numParticipants, setNumParticipants] = useState(1);
 
   useEffect(() => {
-    document.title = "Tours Details";
-    window.scroll(0, 0);
+    document.title = "Tour Details";
+    window.scrollTo(0, 0);
   }, []);
 
-  const handlePeopleChange = (e) => {
-    const value = Math.max(1, e.target.value); // Asegura que el mínimo sea 1
-    setNumPeople(value);
+  // Lógica de cálculo del precio total
+  const calculatePrice = () => {
+    return tour?.price?.[numParticipants] ? tour.price[numParticipants] * numParticipants : 0;
   };
 
-  // Si el tour no está definido, muestra un mensaje de error
-  if (!tour) return <div>Tour no encontrado</div>;
+  // Mostrar mensaje de error si no se encuentra el tour
+  if (!tour) {
+    return <div>Tour no encontrado</div>;
+  }
+
 
   return (
     <>
@@ -79,7 +81,7 @@ const TourDetails = () => {
                       </Nav.Item>
                     </Nav>
                   </Col>
-
+                  {/* Overviwsection */}
                   <Tab.Content className="mt-4">
                     <Tab.Pane eventKey="1">
                       <div className="tour_details">
@@ -105,7 +107,7 @@ const TourDetails = () => {
                         ))}
                       </div>
                     </Tab.Pane>
-
+                    {/* Itinerarysection */}
                     <Tab.Pane eventKey="2">
                       <div className="tour_details">
                         <h1 className="font-bold mb-2 h3 border-bottom pb-2">Itinerary</h1>
@@ -121,73 +123,98 @@ const TourDetails = () => {
                         </Accordion>
                       </div>
                     </Tab.Pane>
-
+                    {/* inclusion&exclusionsection */}
                     <Tab.Pane eventKey="3">
                       <div className="tour_details">
                         <h1 className="font-bold mb-2 h3 border-bottom pb-2">Inclusions & Exclusions</h1>
 
                         <h5 className="font-bold mb-3 h5 mt-3">Inclusion</h5>
-                        {(Array.isArray(tour.included) ? tour.included : []).map((val, index) => (
-                          <ListGroup.Item
-                            className="border-0 pt-0 body-text d-flex align-items-center"
-                            key={index}
-                          >
-                            <i className="bi bi-check-lg me-2 text-success h4 m-0"></i> {val}
-                          </ListGroup.Item>
-                        ))}
+                        {Array.isArray(tour.included) && tour.included.length > 0 ? (
+                          tour.included.map((val, index) => (
+                            <ListGroup.Item
+                              className="border-0 pt-0 body-text d-flex align-items-center"
+                              key={index}
+                            >
+                              <i className="bi bi-check-lg me-2 text-success h4 m-0"></i> {val}
+                            </ListGroup.Item>
+                          ))
+                        ) : (
+                          <p className="text-muted">Inclusions not available.</p>
+                        )}
 
                         <h5 className="font-bold mb-3 h5 mt-3">Exclusion</h5>
-                        {(Array.isArray(tour.exclusion) ? tour.exclusion : []).map((val, index) => (
-                          <ListGroup.Item
-                            className="border-0 pt-0 body-text d-flex align-items-center"
-                            key={index}
-                          >
-                            <i className="bi bi-x-lg me-2 text-danger h5 m-0"></i> {val}
-                          </ListGroup.Item>
-                        ))}
+                        {Array.isArray(tour.exclusion) && tour.exclusion.length > 0 ? (
+                          tour.exclusion.map((val, index) => (
+                            <ListGroup.Item
+                              className="border-0 pt-0 body-text d-flex align-items-center"
+                              key={index}
+                            >
+                              <i className="bi bi-x-lg me-2 text-danger h5 m-0"></i> {val}
+                            </ListGroup.Item>
+                          ))
+                        ) : (
+                          <p className="text-muted">Exclusions not available.</p>
+                        )}
                       </div>
                     </Tab.Pane>
-
+                    {/* Moreinformation        section */}
                     <Tab.Pane eventKey="4">
                       <div className="tour_details">
                         <h1 className="font-bold mb-4 h3 border-bottom pb-2">More information</h1>
-                        {(Array.isArray(tour.additionalInformation) ? tour.additionalInformation : []).map((val, index) => (
-                          <ListGroup.Item
-                            className="border-0 pt-0 body-text"
-                            key={index}
-                            dangerouslySetInnerHTML={{ __html: val }}
-                          ></ListGroup.Item>
-                        ))}
-                        <h5 className="font-bold mb-4 h5 border-bottom pb-2">Suggest packet list</h5>
-                        {(Array.isArray(tour.suggestedPackingList) ? tour.suggestedPackingList : []).map((val, index) => (
-                          <ListGroup.Item
-                            className="border-0 pt-0 body-text"
-                            key={index}
-                            dangerouslySetInnerHTML={{ __html: val }}
-                          ></ListGroup.Item>
-                        ))}
+                        {Array.isArray(tour.additionalInformation) && tour.additionalInformation.length > 0 ? (
+                          tour.additionalInformation.map((val, index) => (
+                            <ListGroup.Item
+                              className="border-0 pt-0 body-text"
+                              key={index}
+                              dangerouslySetInnerHTML={{ __html: val }}
+                            ></ListGroup.Item>
+                          ))
+                        ) : (
+                          <p>No additional information available for this tour.</p>
+                        )}
+
+                        <h5 className="font-bold mb-4 h5 border-bottom pb-2">Suggested Packing List</h5>
+                        {Array.isArray(tour.suggestedPackingList) && tour.suggestedPackingList.length > 0 ? (
+                          tour.suggestedPackingList.map((val, index) => (
+                            <ListGroup.Item
+                              className="border-0 pt-0 body-text"
+                              key={index}
+                              dangerouslySetInnerHTML={{ __html: val }}
+                            ></ListGroup.Item>
+                          ))
+                        ) : (
+                          <p>No suggested packing list available for this tour.</p>
+                        )}
+
                         <h5 className="font-bold mb-4 h5 border-bottom pb-2">Additional Costs</h5>
-                        {(Array.isArray(tour.additionalCosts) ? tour.additionalCosts : []).map((val, index) => (
-                          <ListGroup.Item
-                            className="border-0 pt-0 body-text"
-                            key={index}
-                            dangerouslySetInnerHTML={{ __html: val }}
-                          ></ListGroup.Item>
-                        ))}
+                        {Array.isArray(tour.additionalCosts) && tour.additionalCosts.length > 0 ? (
+                          tour.additionalCosts.map((val, index) => (
+                            <ListGroup.Item
+                              className="border-0 pt-0 body-text"
+                              key={index}
+                              dangerouslySetInnerHTML={{ __html: val }}
+                            ></ListGroup.Item>
+                          ))
+                        ) : (
+                          <p>No additional costs information available for this tour.</p>
+                        )}
                       </div>
                     </Tab.Pane>
+
                   </Tab.Content>
                 </Col>
-
+                 {/* BOOKING calculos*/}
                 <Col md={4}>
                   <aside>
                     <Card className="rounded-3 p-2 shadow-sm mb-4 price-info">
                       <Card.Body>
+                        {/* Precio por persona */}
                         <Stack gap={2} direction="horizontal">
-                          <h1 className="font-bold mb-0 h2">${tour.price}</h1>
+                          <h1 className="font-bold mb-0 h2">${tour.price[numParticipants] || "N/A"}</h1>
                           <span className="fs-4"> /person</span>
                         </Stack>
 
+                        {/* Calificación y reseñas */}
                         <div className="d-flex justify-content-between align-items-center mb-3">
                           <ListGroup horizontal>
                             <ListGroup.Item className="border-0 me-2 fw-bold">{tour.rating}</ListGroup.Item>
@@ -198,18 +225,61 @@ const TourDetails = () => {
                           <h5 className="h6">({tour.reviews})</h5>
                         </div>
 
-                        {/* Selector de número de personas */}
-                        <div className="mb-3">
-                          <Form.Label>Number of People (Discount per person):</Form.Label>
-                          <Form.Control
-                            type="number"
-                            min="1"
-                            value={numPeople}
-                            onChange={handlePeopleChange}
-                            className="mb-2"
-                          />
-                          <div className="font-weight-bold h4">Total: ${totalPrice}</div>
+                        <div className="price-calculator" style={{ marginTop: "20px" }}>
+                          <label
+                            htmlFor="participants"
+                            style={{
+                              display: "block",
+                              fontWeight: "bold",
+                              marginBottom: "8px",
+                              fontSize: "16px",
+                            }}
+                          >
+                            Number of Participants:
+                          </label>
+                          <select
+                            id="participants"
+                            value={numParticipants}
+                            onChange={(e) => setNumParticipants(parseInt(e.target.value))}
+                            style={{
+                              width: "100%",
+                              padding: "8px",
+                              fontSize: "16px",
+                              marginBottom: "16px",
+                              border: "1px solid #ddd",
+                              borderRadius: "5px",
+                            }}
+                          >
+                            {Object.keys(tour.price).map((pax) => (
+                              <option key={pax} value={pax}>
+                                {pax}
+                              </option>
+                            ))}
+                          </select>
+
+                          {/* Precio calculado */}
+                          <p
+                            style={{
+                              fontWeight: "bold",
+                              fontSize: "18px",
+                              margin: "10px 0",
+                              color: "#555",
+                            }}
+                          >
+                            Price per person: <span style={{ color: "#007bff" }}>${tour.price[numParticipants] || "N/A"}</span>
+                          </p>
+                          <p
+                            style={{
+                              fontWeight: "bold",
+                              fontSize: "24px",
+                              margin: "15px 0",
+                              color: "#0a0a0a",
+                            }}
+                          >
+                            Total price: ${calculatePrice()}
+                          </p>
                         </div>
+
                         <NavLink to="/booking" className="primaryBtn w-100 d-flex justify-content-center fw-bold">
                           Book Now
                         </NavLink>
@@ -239,7 +309,7 @@ const TourDetails = () => {
       </section>
       <section className="faq-section py-5">
         <Container>
-          <h2 className="font-bold mb-4 h4">Preguntas Frecuentes</h2>
+          <h2 className="font-bold mb-4 h4">Frequently Asked Questions</h2>
           <Accordion defaultActiveKey="0">
             {/* Accede a las FAQs de tour con tour.faqs */}
             {tour.faqs && tour.faqs.map((faq, index) => (

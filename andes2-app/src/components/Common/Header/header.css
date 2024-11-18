@@ -76,7 +76,7 @@ header .navbar .offcanvas-body .dropdown-menu .dropdown-item {
   header .navbar .toggle_btn {
     font-size: var(--bodyText);
     color: var(--white);
-    border: 2px solid var(--white);
+    border: 2px solid var(--black);
     padding: 7px 10px;
   }
 
@@ -140,4 +140,30 @@ header .navbar .offcanvas-body .dropdown-menu .dropdown-item {
   color: var(--primaryClr);
   font-weight: bold;
   border-bottom: 2px solid var(--primaryClr);
+}
+/* Responsividad */
+@media (max-width: 768px) {
+  .responsive-language-btn {
+    font-size: 0.9rem; /* Reduce tamaño de fuente */
+    padding: 0.4rem 0.8rem; /* Ajusta espaciado interno */
+  }
+
+  .ms-md-4 {
+    margin-left: 1rem !important; /* Ajusta margen izquierdo */
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-language-btn {
+    font-size: 0.8rem; /* Reduce tamaño de fuente */
+    padding: 0.3rem 0.6rem; /* Reduce espaciado interno */
+  }
+
+  .ms-md-4 {
+    margin-left: 0.5rem !important; /* Ajusta margen izquierdo */
+  }
+
+  .toggle_btn {
+    margin-left: 1rem !important; /* Ajusta posición del ícono */
+  }
 }
