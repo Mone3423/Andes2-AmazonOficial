@@ -93,7 +93,7 @@ const Home = () => {
           className="messenger-widget"
           onClick={() =>
             window.open(
-              'https://api.whatsapp.com/send/?phone=59171969465&text&type=phone_number&app_absent=0',
+              'https://www.messenger.com/t/356500907748837/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0',
               '_blank'
             )
           }
