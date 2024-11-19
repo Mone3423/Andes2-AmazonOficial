@@ -277,7 +277,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, La Paz-Potosí-Chuquisaca",
     category: ["Adventure", "Urban Tour", "History"],
     days: "12 days - 11 nights",
-    price: 1000,
+    price: 851,
     rating: 4,
     reviews: 5,
   },
@@ -290,7 +290,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, La Paz",
     category: ["Cultural", "Food Tour"],
     days: "1 days",
-    price: 0,  // Añade el precio correspondiente
+    price: 100,  // Añade el precio correspondiente
     rating: 5,  // Añade la calificación correspondiente
     reviews: 6,  // Añade el número de reseñas correspondientes
   },
@@ -302,7 +302,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, Potosí, Salar de Uyuni",
     category: ["Adventure", "Nature"],
     days: "3 days - 2 nights",
-    price: 0,  // Añade el precio correspondiente
+    price: 215,  // Añade el precio correspondiente
 
     rating: 4,  // Añade la calificación correspondiente
     reviews: 9,  // Añade el número de reseñas correspondientes
@@ -314,7 +314,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, Potosí, Salar de Uyuni",
     category: ["Adventure", "Nature"],
     days: "1 days",
-    price: 0,  // Añade el precio correspondiente
+    price: 70,  // Añade el precio correspondiente
     rating: 0,  // Añade la calificación correspondiente
     reviews: 0,  // Añade el número de reseñas correspondientes
   },
@@ -360,7 +360,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, La Paz, Copacabana",
     category: ["Adventure", "Cultural"],
     days: "3 days - 2 nights",
-    price: 0,  // Añade el precio correspondiente
+    price: 474,  // Añade el precio correspondiente
     rating: 5,  // Añade la calificación correspondiente
     reviews: 10,  // Añade el número de reseñas correspondientes
   },
@@ -371,7 +371,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, La Paz, Copacabana",
     category: ["Adventure", "Cultural"],
     days: "2 days - 1 nights",
-    price: 0,  // Añade el precio correspondiente
+    price: 268,  // Añade el precio correspondiente
     rating: 0,  // Añade la calificación correspondiente
     reviews: 0,  // Añade el número de reseñas correspondientes
   },
@@ -382,7 +382,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, La Paz, Copacabana",
     category: ["Adventure", "Cultural", "Natural"],
     days: "1 days",
-    price: 0,  // Añade el precio correspondiente
+    price: 396,  // Añade el precio correspondiente
 
     rating: 4,  // Añade la calificación correspondiente
     reviews: 7,  // Añade el número de reseñas correspondientes
@@ -394,7 +394,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, Potosí, Sajama and Salar de Uyuni",
     category: ["Adventure", "Nature"],
     days: "3 days - 2 nights",
-    price: 0,  // Añade el precio correspondiente
+    price: 993,  // Añade el precio correspondiente
     rating: 0,  // Añade la calificación correspondiente
     reviews: 0,  // Añade el número de reseñas correspondientes
   },
@@ -405,7 +405,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, Potosí, Sajama and Salar de Uyuni",
     category: ["Adventure", "Nature"],
     days: "2 days - 1 nights",
-    price: 0,  // Añade el precio correspondiente
+    price: 532,  // Añade el precio correspondiente
 
     rating: 0,  // Añade la calificación correspondiente
     reviews: 0,  // Añade el número de reseñas correspondientes
@@ -417,7 +417,7 @@ export const popularsDataBolivia = [
     location: "Bolivia, Potosí, Sajama and Salar de Uyuni",
     category: ["Adventure", "Nature"],
     days: "5 days - 4 nights",
-    price: 0,  // Añade el precio correspondiente
+    price: 2.037,  // Añade el precio correspondiente
     rating: 0,  // Añade la calificación correspondiente
     reviews: 0,  // Añade el número de reseñas correspondientes
   },
