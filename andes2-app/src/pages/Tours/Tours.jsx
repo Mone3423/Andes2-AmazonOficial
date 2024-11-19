@@ -22,11 +22,7 @@ const Tours = () => {
       const matchesCategory =
         !filters.category?.length || filters.category.some((cat) => tour.category.includes(cat));
   
-      // Validar duración (coincidencia exacta)
-      const matchesDuration =
-        !filters.duration?.length || filters.duration.includes(tour.days);
-  
-      return matchesCategory && matchesDuration ;
+      return matchesCategory  ;
     });
   
     setFilteredTours(filtered);

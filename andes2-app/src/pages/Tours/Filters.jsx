@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Accordion, Form } from "react-bootstrap";
-import { Categories, Duration} from "../../utils/data.js";
+import { Categories} from "../../utils/data.js";
 import "../Tours/tour.css";
 
 const Filters = ({ onFilterChange }) => {
@@ -51,27 +51,6 @@ const Filters = ({ onFilterChange }) => {
               ))}
             </Accordion.Body>
           </Accordion.Item>
-
-          {/* Duraciones */}
-          <Accordion.Item eventKey="2">
-            <Accordion.Header>Duration</Accordion.Header>
-            <Accordion.Body>
-              {Duration.map((days, index) => (
-                <Form.Check
-                  key={index}
-                  type="checkbox"
-                  id={days}
-                  label={days}
-                  value={days}
-                  checked={filters.duration.includes(days)}
-                  onChange={(e) =>
-                    handleCheckboxChange("duration", days, e.target.checked)
-                  }
-                />
-              ))}
-            </Accordion.Body>
-          </Accordion.Item>
-
         </Accordion>
       </div>
     </div>

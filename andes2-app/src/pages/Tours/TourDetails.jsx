@@ -280,7 +280,7 @@ const TourDetails = () => {
                           </p>
                         </div>
 
-                        <NavLink to="/booking" className="primaryBtn w-100 d-flex justify-content-center fw-bold">
+                        <NavLink to="/" className="primaryBtn w-100 d-flex justify-content-center fw-bold">
                           Book Now
                         </NavLink>
                       </Card.Body>
