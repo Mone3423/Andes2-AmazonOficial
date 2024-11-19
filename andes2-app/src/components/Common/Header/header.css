@@ -21,7 +21,7 @@
 
 .is-sticky .navbar .navbar-brand a,
 .is-sticky .navbar .offcanvas-body a {
-  color: var(--black) !important;
+  color: var(--white) !important;
 }
 
 .is-sticky .toggle_btn {
